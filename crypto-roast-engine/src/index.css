@@ -1,0 +1,136 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+/* Crypto-themed design system */
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 142 76% 36%;
+    --primary-foreground: 355 7% 97%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 142 72% 29%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-crypto-dark text-foreground font-display;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a1f 100%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .neon-border {
+    @apply border border-neon-green/30 shadow-lg;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+  }
+
+  .neon-text {
+    @apply text-neon-green;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-neon-green to-neon-purple bg-clip-text text-transparent;
+  }
+
+  .crypto-card {
+    @apply bg-crypto-gray/50 border border-white/10 backdrop-blur-sm rounded-xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .glow-button {
+    @apply bg-gradient-to-r from-neon-green to-emerald-400 text-black font-semibold py-3 px-6 rounded-lg transition-all duration-300;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+  }
+
+  .glow-button:hover {
+    @apply scale-105;
+    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.5);
+  }
+
+  .wallet-button {
+    @apply crypto-card p-4 hover:border-neon-green/50 transition-all duration-300 cursor-pointer;
+  }
+
+  .wallet-button:hover {
+    @apply bg-neon-green/5;
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-neon {
+    animation: pulse-neon 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(255, 165, 0, 0.8);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-neon {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(0, 255, 136, 0.5), 0 0 10px rgba(0, 255, 136, 0.5), 0 0 15px rgba(0, 255, 136, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.8), 0 0 20px rgba(0, 255, 136, 0.8), 0 0 30px rgba(0, 255, 136, 0.8);
+  }
+}
